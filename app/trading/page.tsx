@@ -1,32 +1,10 @@
 "use client"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import ChartType from '@/components/chart/ChartType';
+
 import Update from '@/components/chart/Update';
-import Tooltip from '@/components/chart/Tooltip';
-import { useRef } from 'react';
 import OrderBook from "./components/orderbook"
-import { KLineChartPro, DefaultDatafeed } from '@klinecharts/pro'
-import '@klinecharts/pro/dist/klinecharts-pro.css'
+
 import MarketInfo from "./components/marketInfo"
 import ChatInterface from "./components/chatInterface"
-import { Textarea } from "@/components/ui/textarea"
 
 
 export default function TradingPage() {
