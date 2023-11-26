@@ -3,14 +3,14 @@ import { init, dispose, Chart, registerLocale } from 'klinecharts'
 import generatedDataList from '../../generatedDataList'
 import Layout from '../Layout'
 
-registerLocale('zh-HK', {
-  time: '時間：',
-  open: '開：',
-  high: '高：',
-  low: '低：',
-  close: '收：',
-  volume: '成交量：'
-})
+// registerLocale('zh-HK', {
+//   time: '時間：',
+//   open: '開：',
+//   high: '高：',
+//   low: '低：',
+//   close: '收：',
+//   volume: '成交量：'
+// })
 
 const locals = [
   { key: 'zh-CN', text: '简体中文' },

@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
-  onSubmit: () => void
+  onSubmit: (e: any) => void
 }
 
 export function UserAuthForm({ className , onSubmit , ...props }: UserAuthFormProps) {
