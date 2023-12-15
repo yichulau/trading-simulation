@@ -1,7 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
-import ChartContext from "@/context/chartContext";
 
-export default function TradingLayout({
+
+export default function NewsLayout({
 	children,
 }: {
 	children: React.ReactNode;

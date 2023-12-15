@@ -17,7 +17,7 @@ export function MainNav({ items }: MainNavProps) {
         <Icons.logo className="h-6 w-6" />
         <span className="inline-block font-bold">Trading Inc.</span>
       </Link>
-      {/* {items?.length ? (
+      {items?.length ? (
         <nav className="flex gap-6">
           {items?.map(
             (item, index) =>
@@ -35,7 +35,7 @@ export function MainNav({ items }: MainNavProps) {
               )
           )}
         </nav>
-      ) : null} */}
+      ) : null}
     </div>
   )
 }
