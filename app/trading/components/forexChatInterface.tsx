@@ -10,6 +10,8 @@ const ForexChatInterface = () => {
     const [inputValue, setInputValue] = useState('');
     const [streamText, setStreamText] = useState("");
     const [forexHackerString, setForexHackerString] = useState<any>([]);
+    const endOfMessagesRef : any = useRef(null);
+    const containerRef : any = useRef(null);
     const streamTimeoutRef : any = useRef(null);
   
     function generateRandomHexString(minLength: number, maxLength: number): string {
@@ -126,7 +128,15 @@ const ForexChatInterface = () => {
         const interval = setInterval(() => {
             setForexHackerString((prevStrings: any) => [...prevStrings, createForexHackerString()]);
         }, 500); 
+        if (containerRef.current && endOfMessagesRef.current) {
+            const container = containerRef.current;
+            const endElement = endOfMessagesRef.current;
 
+            // Calculate the position to scroll to
+            const scrollPosition = endElement.offsetTop - container.offsetTop;
+            
+            container.scrollTop = scrollPosition;
+        }
         return () => clearInterval(interval); // Clear the interval on component unmount
     }, [forexHackerString]);
     
@@ -174,11 +184,12 @@ const ForexChatInterface = () => {
                                             <span className="text-indigo-400">####</span>
                                             <span className="text-purple-400">####</span>
                                             </div>
-                                            <div className="mt-4 space-y-1 overflow-y-auto max-h-[250px]">
+                                            <div ref={containerRef} className="mt-4 space-y-1 overflow-y-auto max-h-[250px]">
                                                 <p><span className="text-green-400">$ </span>Analysing Text....</p>
                                                 {forexHackerString.map((string : any, index : any) => (
                                                     <p key={index}>{string}</p>
                                                 ))}
+                                                <div ref={endOfMessagesRef} />
                                             </div>
                                             <div className="mt-4 relative">
                                             {/* <input
