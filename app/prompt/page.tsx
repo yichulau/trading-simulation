@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, use } from 'react';
 import 'echarts-gl';
 import * as echarts from "echarts";
 import ChatInterface from "../../app/trading/components/chatInterface";
@@ -10,6 +10,7 @@ import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 
 export default function PromptPage() {
     const [inputValue, setInputValue] = useState('');
+    const [enteredPrompt, setEnteredPrompt]= useState("")
     const [streamText, setStreamText] = useState("");
     const streamTimeoutRef : any = useRef(null);
   
@@ -105,6 +106,7 @@ export default function PromptPage() {
       
 
     const handleClick = () => {
+        setEnteredPrompt(inputValue)
         if (streamTimeoutRef.current) {
             clearInterval(streamTimeoutRef.current); // Clear any existing streams
     
@@ -184,7 +186,7 @@ export default function PromptPage() {
                                 </div>
                                 <div className="flex items-end gap-2 justify-end">
                                     <div className="rounded-lg bg-zinc-700 text-white p-2">
-                                        <p className="text-sm">{inputValue}</p>
+                                        <p className="text-sm">{enteredPrompt}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-end gap-2 max-w-[300px]">
