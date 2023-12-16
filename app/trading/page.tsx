@@ -29,6 +29,7 @@ import { options , options24H} from './data.helpers';
 import { chinaMapConfig, resData } from './map.helpers';
 import { geoJson } from './assets/chinaMap';
 import LiquidationCard from './components/liquidationCard';
+import ForexChatInterface from './components/forexChatInterface';
 
 export default function TradingPage() {
 
@@ -38,9 +39,7 @@ export default function TradingPage() {
         setTimeValue(value);
     };
 
-    const mapInput = {
-        geoJSON: geoJson,
-    };
+    const mapJson : any = geoJson;
     
       
     const mapoptions = chinaMapConfig({
@@ -51,7 +50,7 @@ export default function TradingPage() {
     
       
       // Register the map if needed (check documentation for details)
-    echarts.registerMap("china", { geoJSON: mapInput as any, specialAreas: {} });
+    echarts.registerMap("china", { geoJSON: mapJson, specialAreas: {} });
 
 
     return (
@@ -95,6 +94,20 @@ export default function TradingPage() {
                         <ReactECharts option={mapoptions} style={{ height: '400px', width: '100%' }} />
                     </div>
                 </div>
+
+                <div className='flex w-full'>
+                    <div className='flex flex-col w-full '>
+                        <h2 className="text-lg font-bold mb-4">Forex chat Interface</h2>
+                        <ForexChatInterface />
+                    </div>
+                </div>
+
+                {/* <div className='flex w-full'>
+                    <div className='flex flex-col w-full '>
+                        <h2 className="text-lg font-bold mb-4"></h2>
+                        <ForexChatInterface />
+                    </div>
+                </div> */}
 
 
                 {/* <div className="flex w-full">
