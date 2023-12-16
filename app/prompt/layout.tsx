@@ -10,7 +10,7 @@ export default function NewsLayout({
         <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <div className="flex-1">
-                <section className="container flex flex-col px-0 md:px-2 items-start justify-center">
+                <section className="container flex flex-col px-0 md:px-2 items-start justify-center ">
                     {children}
                 </section>
             </div>
