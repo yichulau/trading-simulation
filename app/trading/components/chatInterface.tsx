@@ -140,7 +140,7 @@ function ChatInterface() {
 
   return (
     <>
-        <div className="flex h-full flex-col space-y-4 p-2 bg-gradient-to-br from-green-800 to-black rounded-lg w-full">
+        <div className="flex h-full flex-col space-y-4 p-2 bg-gradient-to-br from-green-800 to-black  w-full">
         <div className='text-center font-bold mt-4 text-green-300'>
           <h2>Prompt Engineering</h2>
         </div>

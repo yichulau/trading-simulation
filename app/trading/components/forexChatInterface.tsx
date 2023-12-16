@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CardContent, Card } from "@/components/ui/card"
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
+import ChatInterface from './chatInterface';
 
 const ForexChatInterface = () => {
 
@@ -222,8 +223,11 @@ const ForexChatInterface = () => {
                                 </div> */}
                             </div>
                         </aside>
-                        <section className="flex flex-col w-full">
-                            <header className="border-b p-4">
+                        <section className="flex flex-col w-full justify-center items-center">
+
+                                <ChatInterface />
+                       
+                            {/* <header className="border-b p-4">
                             <h2 className="text-xl font-bold flex items-center gap-2">
                                 <Avatar className="relative overflow-visible w-10 h-10">
                                 <span className="absolute right-0 top-0 flex h-3 w-3 rounded-full bg-green-600" />
@@ -232,7 +236,6 @@ const ForexChatInterface = () => {
                                 </Avatar>
                                 <div>
                                 How to Trade Forex
-                                {/* <span className="text-xs text-green-600 block">Online</span> */}
                                 </div>
                             </h2>
                             </header>
@@ -263,7 +266,7 @@ const ForexChatInterface = () => {
                                 <Input className="flex-1" placeholder="Type a message..." value={inputValue}  onChange={handleInputChange}  />
                                 <Button onClick={handleClick}>Send</Button>
                             </div>
-                            </footer>
+                            </footer> */}
                         </section>
                     </div>
                 </Card>

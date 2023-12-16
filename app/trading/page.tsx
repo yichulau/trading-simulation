@@ -94,7 +94,6 @@ export default function TradingPage() {
                         <ReactECharts option={mapoptions} style={{ height: '400px', width: '100%' }} />
                     </div>
                 </div>
-
                 <div className='flex w-full'>
                     <div className='flex flex-col w-full '>
                         <h2 className="text-lg font-bold mb-4">Forex chat Interface</h2>
