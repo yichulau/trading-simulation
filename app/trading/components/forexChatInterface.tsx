@@ -11,6 +11,7 @@ const ForexChatInterface = () => {
     const [inputValue, setInputValue] = useState('');
     const [streamText, setStreamText] = useState("");
     const [forexHackerString, setForexHackerString] = useState<any>([]);
+    const [ promptText ,setPromptText] = useState('');
     const endOfMessagesRef : any = useRef(null);
     const containerRef : any = useRef(null);
     const streamTimeoutRef : any = useRef(null);
@@ -98,6 +99,7 @@ const ForexChatInterface = () => {
       
 
     const handleClick = () => {
+        setPromptText("Answer")
         if (streamTimeoutRef.current) {
             clearInterval(streamTimeoutRef.current); // Clear any existing streams
     
@@ -193,41 +195,14 @@ const ForexChatInterface = () => {
                                                 <div ref={endOfMessagesRef} />
                                             </div>
                                             <div className="mt-4 relative">
-                                            {/* <input
-                                                className="w-full bg-slate-700 text-gray-200 py-1 px-2 rounded outline-none"
-                                                placeholder="Type here..."
-                                                type="text"
-                                            />
-                                            <div className="absolute right-2 top-2 w-1 h-4 bg-white blink" /> */}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {/* <div className="flex justify-between items-center">
-                                    <h2 className="text-xl font-bold">Forex Prompts</h2>
-                                    <Button size="icon" variant="ghost">
-                                    <PencilIcon className="w-6 h-6" />
-                                    </Button>
-                                </div>
-                                <div className="relative">
-                                    <Input className="pl-8" placeholder="Search messages..." type="search" />
-                                    <Button className="absolute right-2.5 top-3" size="icon" variant="ghost" />
-                                </div>
-                                <div className="space-y-2">
-                                    <Card className="p-2">
-                                        <CardContent>
-                                            <h3 className="font-semibold">How To Trade Forex</h3>
-                                            <p className="text-xs text-zinc-500 dark:text-zinc-400">How can i make profitable entry....</p>
-                                        </CardContent>
-                                    </Card>
-                                </div> */}
                             </div>
                         </aside>
-                        <section className="flex flex-col w-full justify-center items-center">
-
-                                <ChatInterface />
-                       
-                            {/* <header className="border-b p-4">
+                        <section className="flex flex-col w-full">
+                            <header className="border-b p-4">
                             <h2 className="text-xl font-bold flex items-center gap-2">
                                 <Avatar className="relative overflow-visible w-10 h-10">
                                 <span className="absolute right-0 top-0 flex h-3 w-3 rounded-full bg-green-600" />
@@ -239,7 +214,7 @@ const ForexChatInterface = () => {
                                 </div>
                             </h2>
                             </header>
-                            <main className="flex-1 overflow-auto p-4">
+                            <main className="flex-1 overflow-auto p-4 max-h-[350px]">
                             <div className="space-y-4">
                                 <div className="flex items-end gap-2">
                                     <div className="rounded-lg bg-zinc-200 dark:bg-gray-700 p-2">
@@ -253,7 +228,7 @@ const ForexChatInterface = () => {
                                 </div>
                                 <div className="flex items-end gap-2 max-w-[300px]">
                                     <div className="rounded-lg bg-zinc-200 dark:bg-gray-700 p-2 ">
-                                        <p className="text-sm">{streamText}</p>
+                                        <p className="text-sm">{promptText}</p>
                                     </div>
                                 </div>
                             </div>
@@ -266,7 +241,7 @@ const ForexChatInterface = () => {
                                 <Input className="flex-1" placeholder="Type a message..." value={inputValue}  onChange={handleInputChange}  />
                                 <Button onClick={handleClick}>Send</Button>
                             </div>
-                            </footer> */}
+                            </footer>
                         </section>
                     </div>
                 </Card>
