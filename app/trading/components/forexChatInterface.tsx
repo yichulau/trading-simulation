@@ -133,9 +133,9 @@ const ForexChatInterface = () => {
     return (
         <>
             <div className="flex flex-col justify-center p-2 gap-2 w-full mt-2">
-                <Card>
+                <Card className='h-full'>
                     <div key="1" className="flex">
-                        <aside className="w-[600px] max-w-[400px] border-r h-[80vh]">
+                        <aside className="flex-1 border-r h-full w-[600px]">
                             <div className="px-2 py-2 space-y-4">
                                 <div className="flex justify-between items-center">
                                     <h2 className="text-xl font-bold ml-1">Forex Prompts</h2>
