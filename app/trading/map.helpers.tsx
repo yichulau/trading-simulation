@@ -1,4 +1,4 @@
-const geoGpsMap = {
+const geoGpsMap : any= {
     '1': [127.9688, 45.368],
     '2': [116.4551, 40.2539],
     '3': [109.1162, 34.2004],
@@ -6,7 +6,7 @@ const geoGpsMap = {
     '5': [87.9236, 43.5883],
     '6': [91.11, 29.97],
 };
-const geoCoordMap = {
+const geoCoordMap : any= {
     'taiwan': [121.5135, 25.0308],
     'Heilongjiang': [127.9688, 45.368],
     'Inner Mongolia': [110.3467, 41.4899],
@@ -41,14 +41,14 @@ const geoCoordMap = {
     'Shanghai': [121.4648, 31.2891],
 };
 
-const colors = [
+const colors : any= [
     ["#1DE9B6", "#F46E36", "#04B9FF", "#5DBD32", "#FFC809", "#FB95D5", "#BDA29A", "#6E7074", "#546570", "#C4CCD3"],
     ["#37A2DA", "#67E0E3", "#32C5E9", "#9FE6B8", "#FFDB5C", "#FF9F7F", "#FB7293", "#E062AE", "#E690D1", "#E7BCF3", "#9D96F5", "#8378EA", "#8378EA"],
     ["#DD6B66", "#759AA0", "#E69D87", "#8DC1A9", "#EA7E53", "#EEDD78", "#73A373", "#73B9BC", "#7289AB", "#91CA8C", "#F49F42"],
 ];
 const colorIndex = 0;
 
-const convertData = function(data) {
+const convertData = function(data : any) {
     var res = [];
     for (var i = 0; i < data.length; i++) {
         var geoCoord = geoCoordMap[data[i].name];
@@ -62,7 +62,7 @@ const convertData = function(data) {
     return res;
 };
 
-const convertToLineData = function(data, gps) {
+const convertToLineData = function(data : any, gps : any) {
     var res = [];
     for (var i = 0; i < data.length; i++) {
         var dataItem = data[i];
@@ -95,8 +95,8 @@ export const chinaMapConfig = (configData : any) => {
         []
     ];
 
-    let categoryData = [];
-    let barData = [];
+    let categoryData : any = [];
+    let barData : any = [];
     for (var key in geoCoordMap) {
         categoryData.push(key);
         mapData[0].push({
@@ -337,7 +337,7 @@ export const chinaMapConfig = (configData : any) => {
                     type: 'scatter',
                     coordinateSystem: 'geo',
                     data: convertData(mapData[n]),
-                    symbolSize: function(val) {
+                    symbolSize: function(val : any) {
                         return val[2] / 10;
                     },
                     label: {
@@ -392,10 +392,10 @@ export const chinaMapConfig = (configData : any) => {
                     //  name: 'Top 5',
                     type: 'effectScatter',
                     coordinateSystem: 'geo',
-                    data: convertData(mapData[n].sort(function(a, b) {
+                    data: convertData(mapData[n].sort(function(a : any, b : any) {
                         return b.value - a.value;
                     }).slice(0, 20)),
-                    symbolSize: function(val) {
+                    symbolSize: function(val : any) {
                         return val[2] / 10;
                     },
                     showEffectOn: 'render',
@@ -601,16 +601,12 @@ export const resData = {
   };
   
 
-  function randomNum(minNum : any, maxNum : any) {
-    switch (arguments.length) {
-        case 1:
-            return parseInt(Math.random() * minNum + 1, 10);
-            break;
-        case 2:
-            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
-            break;
-        default:
-            return 0;
-            break;
+  function randomNum(minNum: number, maxNum?: number): number {
+    if (typeof maxNum === "number") {
+        // If both minNum and maxNum are provided
+        return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+    } else {
+        // If only minNum is provided
+        return Math.floor(Math.random() * minNum + 1);
     }
 }

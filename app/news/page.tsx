@@ -7,9 +7,9 @@ import { CardHeader, CardContent, Card } from "@/components/ui/card"
 
 export default function NewsPage() {
 
-    const [forexHackerString, setForexHackerString] = useState([]);
-    const messagesEndRef = useRef(null);
-    const generateRandomHexString = (minLength, maxLength) => {
+    const [forexHackerString, setForexHackerString] = useState<any>([]);
+    const messagesEndRef : any= useRef(null);
+    const generateRandomHexString = (minLength: any, maxLength: any) => {
         const characters = '0123456789ABCDEF';
         const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
         let result = '';
@@ -19,7 +19,7 @@ export default function NewsPage() {
         return result;
     };
 
-    const getRandomLength = (min, max) => {
+    const getRandomLength = (min: any, max: any) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
@@ -90,7 +90,7 @@ export default function NewsPage() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setForexHackerString(prevStrings => [...prevStrings, createForexHackerString()]);
+            setForexHackerString((prevStrings: any) => [...prevStrings, createForexHackerString()]);
         }, 500); 
 
         scrollToBottom(); // Scroll to the bottom whenever a new string is added
@@ -136,7 +136,7 @@ export default function NewsPage() {
                         </div>
                         <div className="mt-4 space-y-1 overflow-y-auto max-h-[1000px]">
                             <p><span className="text-green-400">$ </span>Analysing Text....</p>
-                            {forexHackerString.map((string, index) => (
+                            {forexHackerString.map((string : any, index : any) => (
                                 <p key={index}>{string}</p>
                             ))}
                             <div ref={messagesEndRef} />
@@ -159,7 +159,7 @@ export default function NewsPage() {
 
 
 
-function PlusIcon(props) {
+function PlusIcon(props : any) {
     return (
       <svg
         {...props}
@@ -180,7 +180,7 @@ function PlusIcon(props) {
   }
   
   
-  function TriangleIcon(props) {
+  function TriangleIcon(props : any) {
     return (
       <svg
         {...props}

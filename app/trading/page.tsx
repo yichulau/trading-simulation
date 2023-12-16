@@ -37,6 +37,10 @@ export default function TradingPage() {
     const handleSelectChange = (value : string) => {
         setTimeValue(value);
     };
+
+    const mapInput = {
+        geoJSON: geoJson,
+    };
     
       
     const mapoptions = chinaMapConfig({
@@ -47,7 +51,7 @@ export default function TradingPage() {
     
       
       // Register the map if needed (check documentation for details)
-    echarts.registerMap("china", { geoJSON: geoJson });
+    echarts.registerMap("china", { geoJSON: mapInput as any, specialAreas: {} });
 
 
     return (
