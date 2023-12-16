@@ -135,7 +135,7 @@ export default function NewsPage() {
                         <span className="text-purple-400">####</span>
                         </div>
                         <div className="mt-4 space-y-1 overflow-y-auto max-h-[1000px]">
-                            <p><span className="text-green-400">$ </span>Analysing Text....</p>
+                            <p><span className="text-green-400">$ </span>Analysing News....</p>
                             {forexHackerString.map((string : any, index : any) => (
                                 <p key={index}>{string}</p>
                             ))}

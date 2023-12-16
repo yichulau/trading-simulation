@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, use } from 'react';
 import 'echarts-gl';
 import * as echarts from "echarts";
 import ChatInterface from "../../app/trading/components/chatInterface";
@@ -10,6 +10,7 @@ import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 
 export default function PromptPage() {
     const [inputValue, setInputValue] = useState('');
+    const [enteredPrompt, setEnteredPrompt]= useState("")
     const [streamText, setStreamText] = useState("");
     const streamTimeoutRef : any = useRef(null);
   
@@ -28,74 +29,84 @@ export default function PromptPage() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     
-    function createForexHackerString(): string {
-    const prefixes: string[] = [
-        'FXCrunch_', 'TradeBot_', 'ForexSession_', 'MarketAnalyser_', 
-        'CurrencyPulse_', 'TradeMaster_', 'ForexInsight_', 'PipNavigator_',
-        'ChartWise_', 'MarketProbe_'
-    ];
-    
-    const forexTerms: string[] = [
-        'EURUSD', 'GBPUSD', 'USDJPY', 'AUDNZD', 'USDCAD', 'XAUUSD', 'Oil', 
-        'Yield', 'Pip', 'Lot', 'Fibonacci', 'Margin', 'Bearish', 'Bullish', 
-        'Resistance', 'Support', 'Leverage', 'Indicator', 'MACD', 'Rollover'
-    ];
-    
-    const commands: string[] = [
-        'analyze', 
-        'report', 
-        'compare', 
-        'correlation', 
-        'fetch', 
-        'backtest', 
-        'extract', 
-        'plot', 
-        'evaluate', 
-        'optimize', 
-        'identify'
-    ];
-    
-    const targets: string[] = [
-        '/analysis', '/data', '/archive', 
-        '/comparison', '/archives',
-        '/market', '/extraction', '/comparison', 
-        '/charts', '/performance'
-    ];
-    
-    const actions: string[] = [
-        'compiling', 'building', 'running', 'installing', 'configuring', 'cleaning',
-        'deploying', 'committing', 'executing', 'testing', 'removing', 'updating'
-    ];
+    function returnAnswer(): string {
     
     
-    const outcomes: string[] = [
-        'successful execution', 'improved performance', 'optimized workflow', 
-        'enhanced security', 'streamlined process'
-    ];
+    const answer : string = "Answer"
     
-    // const prefix: string = prefixes[Math.floor(Math.random() * prefixes.length)];
-    // const forexTerm: string = forexTerms[Math.floor(Math.random() * forexTerms.length)];
-    // const command: string = commands[Math.floor(Math.random() * commands.length)];
-    // const target: string = targets[Math.floor(Math.random() * targets.length)];
-    // const action: string = actions[Math.floor(Math.random() * actions.length)];
-    // const outcome: string = outcomes[Math.floor(Math.random() * outcomes.length)];
     
-    // Generate parts with more varied lengths
-    const hexString1: string = generateRandomHexString(getRandomLength(8, 16), getRandomLength(20, 32));
-    
-    // Assemble the parts into one string with variable lengths
-    const shuffledElements: string[] = [
-        ...prefixes, ...forexTerms, ...commands, ...targets, ...actions, ...outcomes, hexString1
-    ].sort(() => Math.random() - 0.5);
-    
-    const randomElements: string[] = shuffledElements.slice(0, 7); // Select 6 random elements
-    
-    // Join the selected elements to form the string
-    return randomElements.join('_');
+    return answer ;
     }
+
+    function createForexHackerString(): string {
+        const prefixes: string[] = [
+            'FXCrunch_', 'TradeBot_', 'ForexSession_', 'MarketAnalyser_', 
+            'CurrencyPulse_', 'TradeMaster_', 'ForexInsight_', 'PipNavigator_',
+            'ChartWise_', 'MarketProbe_'
+        ];
+        
+        const forexTerms: string[] = [
+            'EURUSD', 'GBPUSD', 'USDJPY', 'AUDNZD', 'USDCAD', 'XAUUSD', 'Oil', 
+            'Yield', 'Pip', 'Lot', 'Fibonacci', 'Margin', 'Bearish', 'Bullish', 
+            'Resistance', 'Support', 'Leverage', 'Indicator', 'MACD', 'Rollover'
+        ];
+        
+        const commands: string[] = [
+            'analyze', 
+            'report', 
+            'compare', 
+            'correlation', 
+            'fetch', 
+            'backtest', 
+            'extract', 
+            'plot', 
+            'evaluate', 
+            'optimize', 
+            'identify'
+        ];
+        
+        const targets: string[] = [
+            '/analysis', '/data', '/archive', 
+            '/comparison', '/archives',
+            '/market', '/extraction', '/comparison', 
+            '/charts', '/performance'
+        ];
+        
+        const actions: string[] = [
+            'compiling', 'building', 'running', 'installing', 'configuring', 'cleaning',
+            'deploying', 'committing', 'executing', 'testing', 'removing', 'updating'
+        ];
+        
+        
+        const outcomes: string[] = [
+            'successful execution', 'improved performance', 'optimized workflow', 
+            'enhanced security', 'streamlined process'
+        ];
+        
+        // const prefix: string = prefixes[Math.floor(Math.random() * prefixes.length)];
+        // const forexTerm: string = forexTerms[Math.floor(Math.random() * forexTerms.length)];
+        // const command: string = commands[Math.floor(Math.random() * commands.length)];
+        // const target: string = targets[Math.floor(Math.random() * targets.length)];
+        // const action: string = actions[Math.floor(Math.random() * actions.length)];
+        // const outcome: string = outcomes[Math.floor(Math.random() * outcomes.length)];
+        
+        // Generate parts with more varied lengths
+        const hexString1: string = generateRandomHexString(getRandomLength(8, 16), getRandomLength(20, 32));
+        
+        // Assemble the parts into one string with variable lengths
+        const shuffledElements: string[] = [
+            ...prefixes, ...forexTerms, ...commands, ...targets, ...actions, ...outcomes, hexString1
+        ].sort(() => Math.random() - 0.5);
+        
+        const randomElements: string[] = shuffledElements.slice(0, 7); // Select 6 random elements
+        
+        // Join the selected elements to form the string
+        return randomElements.join('_');
+        }
       
 
     const handleClick = () => {
+        setEnteredPrompt(inputValue)
         if (streamTimeoutRef.current) {
             clearInterval(streamTimeoutRef.current); // Clear any existing streams
     
@@ -104,7 +115,8 @@ export default function PromptPage() {
           
           // Start streaming random words
           streamTimeoutRef.current = setInterval(() => {
-            setStreamText((prev) => prev + " " + createForexHackerString());
+            // setStreamText((prev) => prev + " " + createForexHackerString());
+            setStreamText((returnAnswer()))
           }, 500); // Adjust the interval as needed
     
     
@@ -174,7 +186,7 @@ export default function PromptPage() {
                                 </div>
                                 <div className="flex items-end gap-2 justify-end">
                                     <div className="rounded-lg bg-zinc-700 text-white p-2">
-                                        <p className="text-sm">{inputValue}</p>
+                                        <p className="text-sm">{enteredPrompt}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-end gap-2 max-w-[300px]">
